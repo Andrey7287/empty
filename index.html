@@ -10,11 +10,12 @@
 
 <body>
 <h1>Hello</h1>
-  <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="node_modules/jquery.formstyler/jquery.formstyler.min.js"></script>
-  <script type="text/javascript" src="node_modules/slick-carousel/slick/slick.min.js"></script>
-  <script type="text/javascript" src="node_modules/jquery-fancybox/source/js/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="js/project.js"></script>
+  <script type="text/javascript" src="node_modules/requirejs/require.js" data-main="js/config"></script>
+  <script>
+    require(['config'], function () {
+      require(['../js/project'])
+    });
+  </script>
 </body>
 
 </html>

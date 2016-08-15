@@ -6,13 +6,21 @@
   }
 }
 
-@mixin simple-gradient($direction, $color1, $color1pos, $color2, $color2pos) {
-  background: $color1;
-  background: -webkit-linear-gradient($direction, $color1 $color1pos, $color2 $color2pos);
-  background: -moz-linear-gradient($direction, $color1 $color1pos, $color2 $color2pos);
-  background: -o-linear-gradient($direction, $color1 $color1pos, $color2 $color2pos);
-  background: -ms-linear-gradient($direction, $color1 $color1pos, $color2 $color2pos);
-  background: linear-gradient($direction, $color1 $color1pos, $color2 $color2pos);
+@mixin hone($background: #fff) {
+  overflow:hidden;
+  position:relative;
+  span {
+    z-index: 2;
+    position: relative;
+    background: $background;
+  }
+  &:before {
+    bottom: 1px;
+    position:absolute;
+    z-index: 1;
+    color: darken(#ecf2f1, 10%);
+    content: "...................................................................................................................................................................................................................................................................................................................................................";
+  }
 }
 
 /*Descriptions
@@ -27,7 +35,20 @@ $row and $cell - amount of rows and cells in sprite
 @mixin sprite($path, $width, $height, $row, $cell) {
   &::before {
   content: "";
-  display: block;
+  display: inline-block;
+  width: $width+px;
+  height: $height+px;
+  background: url($path) (-$cell * $width)+px (-$row * $height)+px no-repeat;
+  }
+}
+@mixin sprite-pos($path, $width, $height, $row, $cell, $pos-x: 0, $pos-y: 0) {
+  position: relative;
+  &::before {
+  position: absolute;
+  top: $pos-y + px;
+  left: $pos-x + px;
+  content: "";
+  display: inline-block;
   width: $width+px;
   height: $height+px;
   background: url($path) (-$cell * $width)+px (-$row * $height)+px no-repeat;
@@ -41,10 +62,20 @@ $row and $cell - amount of rows and cells in sprite
   @if $point == tablet {
   @media (min-width: 768px) and (max-width: 1023px) { @content; }
   }
-  @if $point == mobile {
-  @media (min-width: 480px) and (max-width: 767px ) { @content; }
+  @if $point == tablet-desktop {
+  @media (min-width: 768px) { @content; }
   }
   @if $point == all-small {
     @media (max-width: 1023px ) { @content; }
+  }
+  @if $point == mobile {
+  @media (max-width: 767px ) { @content; }
+  }
+  // Additional
+  @if $point == tablet-small {
+    @media (min-width: 426px) and (max-width: 767px) { @content; }
+  }
+  @if $point == mobile-small {
+    @media (max-width: 480px) { @content; }
   }
 }
