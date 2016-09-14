@@ -1,0 +1,43 @@
+// Box-sizing
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+// Font
+
+body, p {
+  @include font;
+}
+
+// Reset fonts for relevant elements
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+
+// Links
+
+a {
+  color: #545454;;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $link;
+    text-decoration: $link-hov;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
