@@ -11,6 +11,7 @@
 
 body, p {
   @include font;
+  color: $default;
 }
 
 // Reset fonts for relevant elements
@@ -30,14 +31,35 @@ textarea {
 a {
   color: #545454;;
   text-decoration: none;
-
+  color: $link;
+  transition: 0.3s;
   &:hover,
   &:focus {
-    color: $link;
-    text-decoration: $link-hov;
+    color: $link-hov;
+    text-decoration: none;
   }
 
   &:focus {
     outline: none;
   }
+}
+
+//NAV
+
+nav {
+  ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+}
+
+// Headers
+
+h1, .h1 {
+
+}
+h2, .h2 {
+  @include font(700, 32px, 34px, $sans-caption);
+  text-transform: uppercase;
 }
