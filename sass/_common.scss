@@ -1,17 +1,17 @@
 // Box-sizing
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 *:before,
 *:after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 // Font
 
 body, p {
-  @include font;
-  color: $default;
+	@include font;
+	color: $default-color;
 }
 
 // Reset fonts for relevant elements
@@ -20,46 +20,49 @@ input,
 button,
 select,
 textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
 }
 
 
 // Links
 
 a {
-  color: #545454;;
-  text-decoration: none;
-  color: $link;
-  transition: 0.3s;
-  &:hover,
-  &:focus {
-    color: $link-hov;
-    text-decoration: none;
-  }
+	color: $link;
+	transition: 0.3s;
+	&:hover,
+	&:focus {
+		color: $link-hov;
+		text-decoration: none;
+	}
 
-  &:focus {
-    outline: none;
-  }
+	&:focus {
+		outline: none;
+	}
 }
 
 //NAV
 
 nav {
-  ul{
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
+	ul{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
 }
 
 // Headers
 
 h1, .h1 {
 
+	text-transform: uppercase;
 }
 h2, .h2 {
-  @include font(700, 32px, 34px, $sans-caption);
-  text-transform: uppercase;
+
+	text-transform: uppercase;
+}
+h3, .h3 {
+
+	text-transform: uppercase;
 }
