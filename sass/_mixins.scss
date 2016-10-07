@@ -62,6 +62,10 @@ $row and $cell - amount of rows and cells in sprite
     @media (max-width: 480px) { @content; }
   }
 }
-@mixin font($weight: 400, $size: $default-size, $height: $default-height, $font: $default-font){
-  font: $weight #{$size}/#{$height} $font;
+
+@mixin font($weight: 400, $size: $base-font-size, $height: $base-line-height, $font: $default-font){
+	font-weight: $weight;
+	font-size: $size/$base-font-size + em;
+	line-height: $height/$base-line-height + em;
+	font-family: $font;
 }
