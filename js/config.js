@@ -3,11 +3,13 @@ requirejs.config({
   baseUrl: 'node_modules/',
   shim: {
     'slick': ['jquery'],
+    'jquery-ui': ['jquery'],
     'slimscroll': ['jquery'],
     'styler': ['jquery']
   },
   paths: {
     'jquery': 'jquery/dist/jquery.min',
+    'jquery-ui': 'jquery-ui-dist/jquery-ui.min',
     'slick': 'slick-carousel/slick/slick.min',
     'fancybox': 'jquery-fancybox/source/js/jquery.fancybox.pack',
     'bootstrap': 'bootstrap-sass/assets/javascripts/bootstrap',
